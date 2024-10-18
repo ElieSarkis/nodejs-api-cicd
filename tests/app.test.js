@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app');
+const { app, server } = require('../app');
 
 describe('GET /', () => {
   it('should return: This API endpoint is tested with each code push to GitHub.', async () => {
@@ -9,4 +9,10 @@ describe('GET /', () => {
       'This API endpoint is tested with each code push to GitHub.'
     );
   });
+});
+
+// Close the server after all tests
+afterAll((done) => {
+  server.close(); // Close the server
+  done();
 });

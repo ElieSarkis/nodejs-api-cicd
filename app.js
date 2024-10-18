@@ -6,8 +6,9 @@ app.get('/', (req, res) => {
   res.send('This API endpoint is tested with each code push to GitHub.');
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
 
-module.exports = app;
+// Exporting both the app and server for testing purpose
+module.exports = { app, server };
